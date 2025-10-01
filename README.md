@@ -1,5 +1,6 @@
 🍰 Loja de Sobremesas
 Um projeto de interface para uma loja virtual de sobremesas, onde o usuário pode visualizar os produtos, escolher a quantidade e adicioná-los ao carrinho de compras de forma dinâmica.
+Este site foi desenvolvido para um desafio do Frontend Mentor https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d
 
 🔍 Visão Geral
 Este projeto foi desenvolvido com HTML, CSS e JavaScript puro. A interface simula uma loja de sobremesas onde é possível:
