@@ -1,16 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { 
+   
+
     const cartTitle = document.querySelector('.cart h2');
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartFooter = document.querySelector('.cart-footer');
     const cartTotal = document.querySelector('.cart-total');
     const emptyCartImg = document.querySelector('.empty-cart-img');
     const emptyCartMsg = document.querySelector('.cart p');
+ 
 
     let cart = [];
 
     function updateCart() {
         cartItemsContainer.innerHTML = '';
-        let total = 0;
+        let total = 0; 
 
         if (cart.length === 0) {
             emptyCartImg.style.display = 'block';
@@ -18,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             emptyCartImg.style.display = 'none';
             emptyCartMsg.style.display = 'none';
+           
         }
 
         cart.forEach((item, index) => {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
-
             const li = document.createElement('li');
             li.className = 'cart-item';
             li.innerHTML = `
@@ -34,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="remove-btn" data-index="${index}">✖</button>
             `;
             cartItemsContainer.appendChild(li);
+            
         });
 
         cartTitle.textContent = `Your Cart (${cart.length})`;
@@ -47,11 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart.splice(index, 1);
                 updateCart();
             });
+           
         });
     }
 
-    document.querySelectorAll('.add-button').forEach(button => {
-        let step = 0;
+    document.querySelectorAll('.add-button').forEach(button => { 
+        let step = 0; 
+
         const originalText = button.querySelector('.original-text');
         const controleHover = button.querySelector('.controle-hover');
         const numberSpan = button.querySelector('.number');
@@ -74,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (count > 1) {
                 numberSpan.textContent = count - 1;
             }
-        });
+        }); 
 
         button.addEventListener('click', () => {
             if (step === 0) {
@@ -82,9 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 controleHover.style.display = 'flex';
                 button.classList.add('ativo');
                 step = 1;
+             
             } else {
                 const quantity = parseInt(numberSpan.textContent);
-
+           
                 cart.push({
                     name: productName,
                     price: productPrice,
@@ -106,4 +113,5 @@ document.addEventListener('DOMContentLoaded', () => {
         cart = [];
         updateCart();
     });
+ 
 });
